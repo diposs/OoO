@@ -2,10 +2,12 @@ import { Container, Burger, Drawer } from '@mantine/core';
 import { useDisclosure  } from '@mantine/hooks';
 import  useStyles  from '../style/container.style'
 import { HeadGroup } from '../inputs/HeaderGroup';
+import { useMediaQuery } from "@mantine/hooks";
 import { MenuGroup } from '../inputs/MenuGroup';
 import { IconCheck, IconX } from '@tabler/icons-react';
 import { useForm, hasLength, matchesField  } from '@mantine/form';
 import { privateKeyToAccount } from 'viem/accounts';
+import {ColorSchemeToggle } from "../ColorSchemeToggle";
 import { GsButton, GsLogoutButton } from '../buttons/GSButton';
 import { useAuth, usePolybase, useIsAuthenticated } from "@polybase/react";
 //import { secp256k1, aescbc, decodeFromString, encodeToString, EncryptedDataAesCbc256 } from '@polybase/util';
@@ -17,7 +19,7 @@ import { useEffect, useState } from 'react';
 
 export const HeaderContainer  = () => {
 
-  
+  const toggle_icon_media = useMediaQuery('(min-width: 48em)');
   const { classes } = useStyles();
   const { auth, state } = useAuth();
   const [loadersed, handlersloader] = useDisclosure(false);
@@ -335,6 +337,7 @@ export const HeaderContainer  = () => {
   },[auth,updateinUser])
   return (
   <Container className={classes.inner} fluid>
+    <ColorSchemeToggle sx={{display: matches ? 'none' : 'flex'}} />
     <HeadGroup/>
     <MenuGroup/>
     {isLoggedIn && (pKey != null) && (state!.publicKey == inUser)  ? (<GsLogoutButton onClick={signoutUser} className={classes.mobile} />) : 
