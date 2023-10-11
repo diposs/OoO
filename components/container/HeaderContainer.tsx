@@ -337,7 +337,7 @@ export const HeaderContainer  = () => {
   },[auth,updateinUser])
   return (
   <Container className={classes.inner} fluid>
-    <ColorSchemeToggle sx={{display: matches ? 'none' : 'flex'}} />
+    <ColorSchemeToggle sx={{display: toggle_icon_media ? 'none' : 'flex'}} />
     <HeadGroup/>
     <MenuGroup/>
     {isLoggedIn && (pKey != null) && (state!.publicKey == inUser)  ? (<GsLogoutButton onClick={signoutUser} className={classes.mobile} />) : 
