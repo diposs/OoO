@@ -1,9 +1,9 @@
-import { Button, useMantineColorScheme, Group, packSx, Sx  } from "@mantine/core";
+import { Button, useMantineColorScheme, Group, packSx, Sx, ButtonProps } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import {ColorSchemeToggle } from "../ColorSchemeToggle";
 
-interface GsButtonProps extends React.ComponentPropsWithoutRef<'button'> {vdx?:Sx | Sx[]}
-interface GsLogoutButtonProps extends React.ComponentPropsWithoutRef<'button'> {vdx?:Sx | Sx[]}
+interface GsButtonProps extends ButtonProps {vdx?:Sx | Sx[]}
+interface GsLogoutButtonProps extends ButtonProps {vdx?:Sx | Sx[]}
 
 export const GsButton = ({ vdx, ...rest }:GsButtonProps) =>  {
     const { colorScheme } = useMantineColorScheme();
