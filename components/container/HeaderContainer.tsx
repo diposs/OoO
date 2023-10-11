@@ -340,7 +340,7 @@ export const HeaderContainer  = () => {
     <ColorSchemeToggle sx={{display: toggle_icon_media ? 'none' : 'flex'}} />
     <HeadGroup/>
     <MenuGroup/>
-    {isLoggedIn && (pKey != null) && (state!.publicKey == inUser)  ? (<GsLogoutButton vdx={{display: toggle_icon_media ? 'flex' : 'none'}} onClick={{signoutUser}} />) : 
+    {isLoggedIn && (pKey != null) && (state!.publicKey == inUser)  ? (<GsLogoutButton vdx={{display: toggle_icon_media ? 'flex' : 'none'}} onClick={signoutUser} />) : 
     (
       <GsButton vdx={{display: toggle_icon_media ? 'flex' : 'none'}}  />
     )
