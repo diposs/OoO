@@ -2,6 +2,7 @@ import { Container, Burger, Drawer } from '@mantine/core';
 import { useDisclosure  } from '@mantine/hooks';
 import  useStyles  from '../style/container.style'
 import { HeadGroup } from '../inputs/HeaderGroup';
+import { MenuGroup } from '../inputs/MenuGroup';
 import { IconCheck, IconX } from '@tabler/icons-react';
 import { useForm, hasLength, matchesField  } from '@mantine/form';
 import { privateKeyToAccount } from 'viem/accounts';
@@ -335,6 +336,7 @@ export const HeaderContainer  = () => {
   return (
   <Container className={classes.inner} fluid>
     <HeadGroup/>
+    <MenuGroup/>
     {isLoggedIn && (pKey != null) && (state!.publicKey == inUser)  ? (<GsLogoutButton onClick={signoutUser} className={classes.mobile} />) : 
     (
       <GsButton onClick={signInUser} className={classes.mobile} loading={loadersed} />
