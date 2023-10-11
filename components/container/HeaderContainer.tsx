@@ -340,9 +340,9 @@ export const HeaderContainer  = () => {
     <ColorSchemeToggle sx={{display: toggle_icon_media ? 'none' : 'flex'}} />
     <HeadGroup/>
     <MenuGroup/>
-    {isLoggedIn && (pKey != null) && (state!.publicKey == inUser)  ? (<GsLogoutButton onClick={signoutUser} className={classes.mobile} />) : 
+    {isLoggedIn && (pKey != null) && (state!.publicKey == inUser)  ? (<GsLogoutButton onClick={signoutUser} sx={{display: toggle_icon_media ? 'none' : 'flex'}} />) : 
     (
-      <GsButton onClick={signInUser} className={classes.mobile} loading={loadersed} />
+      <GsButton onClick={signInUser} sx={{display: toggle_icon_media ? 'none' : 'flex'}} loading={loadersed} />
     )
     }
     <Burger opened={openedburger} onClick={toggle} className={classes.nonMobile} />
