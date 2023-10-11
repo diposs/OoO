@@ -22,7 +22,7 @@ export const HeaderContainer  = () => {
   const toggle_icon_media = useMediaQuery('(min-width: 48em)');
   const { classes } = useStyles();
   const { auth, state } = useAuth();
-  const [loadersed, handlersloader] = useDisclosure(true);
+  const [loadersed, handlersloader] = useDisclosure(false);
   const [openedburger, { toggle }] = useDisclosure(false);
   const [pvkeyst, setPvkeyst] = useState<string>('')
   const { inUser, pRecord, updateinUser, pKey, updatepRecord, updatepKey, pvKey, updatepvKey, addressed, setAddressed, lighthouseapi, updatelighthouseapi } = useBoundStore3();
