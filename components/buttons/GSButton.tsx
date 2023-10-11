@@ -2,7 +2,7 @@ import { Button, useMantineColorScheme, Group, packSx, Sx } from "@mantine/core"
 import { useMediaQuery } from "@mantine/hooks";
 import {ColorSchemeToggle } from "../ColorSchemeToggle";
 
-interface GsButtonProps extends React.ComponentPropsWithoutRef<'button'> {vdx?:Sx | Sx[]:loading?: boolean;}
+interface GsButtonProps extends React.ComponentPropsWithoutRef<'button'> {vdx?:Sx | Sx[];loading?: boolean;}
 interface GsLogoutButtonProps extends React.ComponentPropsWithoutRef<'button'> {vdx?:Sx | Sx[];loading?: boolean;}
 
 export const GsButton = ({ vdx, ...rest }:GsButtonProps) =>  {
