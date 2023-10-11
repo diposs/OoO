@@ -2,8 +2,8 @@ import { Button, useMantineColorScheme, Group, Sx } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import {ColorSchemeToggle } from "../ColorSchemeToggle";
 
-interface GsButtonProps {vdx?:Sx}
-interface GsLogoutButtonProps {vdx?:Sx}
+interface GsButtonProps {vdx:Sx}
+interface GsLogoutButtonProps {vdx:Sx}
 
 export const GsButton = ({ vdx, ...rest }:GsButtonProps) =>  {
     const { colorScheme } = useMantineColorScheme();
