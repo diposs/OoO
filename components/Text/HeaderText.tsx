@@ -4,10 +4,8 @@ export const Texto = () => {
   return (
     <Title
       sx={{ fontFamily: 'Greycliff CF, sans-serif' }}
-      fz="xl"
-      fw={700}
     >
-      O&#8734;O
+      &#9854;
     </Title>
   );
 }

@@ -12,7 +12,7 @@ export const MenuGroup = () => {
         <Menu.Item key={item.link}>{item.label}</Menu.Item>
         ));
     
-        if (menuItems)   {
+        if (menuItems) {
         return (
             <Menu key={link.label} trigger="hover" transitionProps={{ exitDuration: 0 }}>
             <Menu.Target>
