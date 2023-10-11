@@ -325,7 +325,7 @@ export const HeaderContainer  = () => {
         }
         color={strength3 > 80 ? 'teal' : strength3 > 50 ? 'yellow' : 'red'}
         key={index}
-        size={4}
+        size={4}  onClick={signoutUser} onClick={signInUser} loading={loadersed}
       />
     ));**/
   useEffect(() => {
@@ -340,9 +340,9 @@ export const HeaderContainer  = () => {
     <ColorSchemeToggle sx={{display: toggle_icon_media ? 'none' : 'flex'}} />
     <HeadGroup/>
     <MenuGroup/>
-    {isLoggedIn && (pKey != null) && (state!.publicKey == inUser)  ? (<GsLogoutButton vdx={{display: toggle_icon_media ? 'flex' : 'none'}} onClick={signoutUser} />) : 
+    {isLoggedIn && (pKey != null) && (state!.publicKey == inUser)  ? (<GsLogoutButton vdx={{display: toggle_icon_media ? 'flex' : 'none'}}/>) : 
     (
-      <GsButton vdx={{display: toggle_icon_media ? 'flex' : 'none'}} onClick={signInUser} loading={loadersed} />
+      <GsButton vdx={{display: toggle_icon_media ? 'flex' : 'none'}}  />
     )
     }
     <Burger opened={openedburger} onClick={toggle} className={classes.nonMobile} />
