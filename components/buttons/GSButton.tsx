@@ -1,4 +1,4 @@
-import { Button, useMantineColorScheme, Group, packSx, Sx DefaultProps  } from "@mantine/core";
+import { Button, useMantineColorScheme, Group, packSx, Sx, DefaultProps  } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import {ColorSchemeToggle } from "../ColorSchemeToggle";
 
