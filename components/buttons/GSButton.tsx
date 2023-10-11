@@ -1,12 +1,12 @@
-import { Button, useMantineColorScheme, Group, packSx, Sx, ButtonProps } from "@mantine/core";
+import { Button, useMantineColorScheme, Group, packSx, Sx, UnstyledButtonProps } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import {ColorSchemeToggle } from "../ColorSchemeToggle";
 
-interface GsButtonProps extends ButtonProps,React.ComponentPropsWithoutRef<'button'> {vdx?:Sx | Sx[]}
-interface GsLogoutButtonProps extends ButtonProps,React.ComponentPropsWithoutRef<'button'> {vdx?:Sx | Sx[]}
+interface GsButtonProps extends UnstyledButtonProps {vdx?:Sx | Sx[]}
+interface GsLogoutButtonProps extends UnstyledButtonProps {vdx?:Sx | Sx[]}
 
 export const GsButton = ({ vdx, ...rest }:GsButtonProps) =>  {
-    const { colorScheme } = useMantineColorScheme();
+    const { colorScheme } = useMantineColorScheme();//,React.ComponentPropsWithoutRef<'button'>
     const matches = useMediaQuery('(min-width: 48em)');
     return (
         <Group spacing="lg" sx={[...packSx(vdx)]}>
