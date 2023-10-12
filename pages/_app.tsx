@@ -22,7 +22,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
     setColorScheme(nextColorScheme);
     setCookie('mantine-color-scheme', nextColorScheme, { maxAge: 60 * 60 * 24 * 30 });
   };
-  console.log('ssded', getCookie('mantine-color-scheme') || 'lighdd')
+  setColorScheme(getCookie('mantine-color-scheme') || 'light');
  const { pvKey } = useBoundStore3();
   useEffect(() => {
     polybase.signer(async (data) => {
