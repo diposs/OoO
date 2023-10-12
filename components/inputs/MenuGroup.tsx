@@ -10,7 +10,7 @@ export const MenuGroup = () => {
     const itemed = items.map((link) => {
         const menuItems = link.links?.map((item) => (
         <Menu.Item key={item.link}><a
-              href={link.link}
+              href={item.link}
               className={classes.link}
               onClick={(event) => event.preventDefault()}
             >{item.label}</a></Menu.Item>
