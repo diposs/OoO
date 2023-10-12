@@ -8,6 +8,7 @@ import NextApp, { AppProps, AppContext } from 'next/app';
 import { getCookie, setCookie } from 'cookies-next';
 //import Head from 'next/head';
 import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
+import { useColorScheme } from '@mantine/hooks';
 import { Notifications } from '@mantine/notifications';
 
 const polybase = new Polybase({defaultNamespace: process.env.NEXT_PUBLIC_DB,}); 
@@ -15,14 +16,14 @@ const auth = typeof window !== "undefined" ? new Auth() : null;
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
-  const [colorScheme, setColorScheme] = useState<ColorScheme>(props.colorScheme);
+  const preferredColorScheme = getCookie('mantine-color-scheme') as ColorScheme || (colorScheme === 'dark' ? 'dark' : 'light');
+  const [colorScheme, setColorScheme] = useState<ColorScheme>(preferredColorScheme);
 
   const toggleColorScheme = (value?: ColorScheme) => {
     const nextColorScheme = value || (colorScheme === 'dark' ? 'light' : 'dark');
     setColorScheme(nextColorScheme);
     setCookie('mantine-color-scheme', nextColorScheme, { maxAge: 60 * 60 * 24 * 30 });
   };
-  setColorScheme(getCookie('mantine-color-scheme') as ColorScheme || (colorScheme === 'dark' ? 'dark' : 'light'));
  const { pvKey } = useBoundStore3();
   useEffect(() => {
     polybase.signer(async (data) => {
@@ -42,7 +43,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
 
  
   return (
-   <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+   <ColorSchemeProvider colorScheme={colorScheme:getCookie('mantine-color-scheme')} toggleColorScheme={toggleColorScheme}>
      <MantineProvider theme={{ colorScheme:colorScheme, loader: 'oval' }} withGlobalStyles withNormalizeCSS>
       <PolybaseProvider polybase={polybase}>
        <AuthProvider auth={auth!} polybase={polybase}>
