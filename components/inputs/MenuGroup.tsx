@@ -9,7 +9,11 @@ export const MenuGroup = () => {
     const [opened, { toggle }] = useDisclosure(false);
     const itemed = items.map((link) => {
         const menuItems = link.links?.map((item) => (
-        <Menu.Item key={item.link}>{item.label}</Menu.Item>
+        <Menu.Item key={item.link}><a
+              href={link.link}
+              className={classes.link}
+              onClick={(event) => event.preventDefault()}
+            >{item.label}</a></Menu.Item>
         ));
     
         if (menuItems) {
