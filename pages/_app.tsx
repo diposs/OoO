@@ -16,7 +16,7 @@ const auth = typeof window !== "undefined" ? new Auth() : null;
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
-  const preferredColorScheme: ColorScheme  = getCookie('mantine-color-scheme') as ColorScheme || (colorScheme === 'dark' ? 'dark' : 'light');
+  const preferredColorScheme: ColorScheme  = getCookie('mantine-color-scheme') as ColorScheme || 'light' as ColorScheme;
   const [colorScheme, setColorScheme] = useState<ColorScheme>(preferredColorScheme);
 
   const toggleColorScheme = (value?: ColorScheme) => {
