@@ -43,7 +43,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
 
  
   return (
-   <ColorSchemeProvider colorScheme={colorScheme:getCookie('mantine-color-scheme')} toggleColorScheme={toggleColorScheme}>
+   <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
      <MantineProvider theme={{ colorScheme:colorScheme, loader: 'oval' }} withGlobalStyles withNormalizeCSS>
       <PolybaseProvider polybase={polybase}>
        <AuthProvider auth={auth!} polybase={polybase}>
