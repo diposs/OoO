@@ -4,11 +4,10 @@ import { Polybase } from "@polybase/client";
 import { Auth } from "@polybase/auth";
 import { ethPersonalSign } from '@polybase/eth'
 import { useBoundStore3 } from '../stores/datastate'
-import NextApp, { AppProps, AppContext } from 'next/app';
-import { getCookie, setCookie } from 'cookies-next';
+import NextApp, { AppProps } from 'next/app';
 //import Head from 'next/head';
 import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
-import { useColorScheme } from '@mantine/hooks';
+import { useHotkeys, useLocalStorage } from '@mantine/hooks';
 import { Notifications } from '@mantine/notifications';
 
 const polybase = new Polybase({defaultNamespace: process.env.NEXT_PUBLIC_DB,}); 
@@ -16,14 +15,16 @@ const auth = typeof window !== "undefined" ? new Auth() : null;
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
-  const preferredColorScheme: ColorScheme  = getCookie('mantine-color-scheme') as ColorScheme || useColorScheme();
-  const [colorScheme, setColorScheme] = useState<ColorScheme>(preferredColorScheme);
+  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
+    key: 'mantine-color-scheme',
+    defaultValue: 'light',
+    getInitialValueInEffect: true,
+  });
 
-  const toggleColorScheme = (value?: ColorScheme) => {
-    const nextColorScheme = value || (colorScheme === 'dark' ? 'light' : 'dark');
-    setColorScheme(nextColorScheme);
-    setCookie('mantine-color-scheme', nextColorScheme, { maxAge: 60 * 60 * 24 * 30 });
-  };
+  const toggleColorScheme = (value?: ColorScheme) =>
+    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+
+  useHotkeys([['mod+J', () => toggleColorScheme()]]);
  const { pvKey } = useBoundStore3();
   useEffect(() => {
     polybase.signer(async (data) => {
