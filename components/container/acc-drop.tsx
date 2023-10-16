@@ -8,7 +8,7 @@ export function AccDrop() {
   const getColor = (color: string) => theme.colors[color][theme.colorScheme === 'dark' ? 5 : 7];
 
   return (
-    <Accordion variant="separated" multiple transitionDuration={1000} defaultValue="wallets" className={classes.root}>
+    <Accordion variant="separated" multiple transitionDuration={1000} defaultValue={['wallets', 'NFTs','SWAPS','LIKES']} className={classes.root}>
       <Accordion.Item value="wallets">
         <Accordion.Control icon={<IconPhoto size={rem(20)} color={getColor('red')} />}>
           WALLETS
