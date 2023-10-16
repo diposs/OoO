@@ -1,12 +1,14 @@
 import { IconPhoto, IconPrinter, IconCameraSelfie } from '@tabler/icons-react';
 import { Accordion, useMantineTheme, rem } from '@mantine/core';
+import  useStyles  from '../style/StatsGrid.style';
 
 export function AccDrop() {
   const theme = useMantineTheme();
+  const { classes } = useStyles();
   const getColor = (color: string) => theme.colors[color][theme.colorScheme === 'dark' ? 5 : 7];
 
   return (
-    <Accordion variant="separated" defaultValue="photos" p="sm" mt={12}>
+    <Accordion variant="separated" defaultValue="photos" className={classes.root} mt={12}>
       <Accordion.Item value="photos">
         <Accordion.Control icon={<IconPhoto size={rem(20)} color={getColor('red')} />}>
           Recent photos
