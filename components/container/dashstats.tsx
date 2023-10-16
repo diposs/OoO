@@ -1,4 +1,4 @@
-import { Group, Paper, Blockquote, Button, SimpleGrid, Text, rem } from '@mantine/core';
+import { Group, Paper, Blockquote, Button, SimpleGrid, Text, rem, Stack } from '@mantine/core';
 import {
   IconUserPlus,
   IconDiscount2,
@@ -57,14 +57,16 @@ export function StatsGrid() {
       <Blockquote cite="– KOBE A.K.A 'MAMBA'">
       HAVE A DREAM? SACRIFICE FOR IT, AND NEVER, EVER REST IN THE MIDDLE.
     </Blockquote>
-        <Button
-        variant="subtle"
-        component="a"
-        href="../dashboard/settings"
-        leftIcon={<IconSettings size={rem(18)} />}
-      >
-        <Text size="xs"  className={classes.title}>Settings</Text>
-      </Button>
+        <Stack align="flex-end">
+          <Button
+            variant="subtle"
+            component="a"
+            href="../dashboard/settings"
+            leftIcon={<IconSettings size={rem(18)} />}
+          >
+            <Text size="xs"  className={classes.title}>Settings</Text>
+          </Button>
+        </Stack>
         </Group>
       <SimpleGrid breakpoints={[ {minWidth: 'base', cols: 1}, {minWidth: 'xs', cols: 2}, {minWidth: 'md', cols: 5 },]}>{stats}</SimpleGrid>
     </div>
