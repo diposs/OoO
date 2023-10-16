@@ -1,7 +1,7 @@
 import { createStyles, rem } from '@mantine/core';
 export default createStyles ((theme) => ({
   root: {
-    padding: `${theme.spacing.xl}px  * 1.5 `,
+    padding: `calc(${theme.spacing.xl}px  * 1.5 )`,
   },
 
 value: {
