@@ -4,8 +4,7 @@ import {
   IconDiscount2,
   IconReceipt2,
   IconCoin,
-  IconArrowUpRight,
-  IconArrowDownRight,
+  IconBuildingLighthouse,
 } from '@tabler/icons-react';
 import  useStyles  from '../style/StatsGrid.style';
 
