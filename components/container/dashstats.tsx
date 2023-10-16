@@ -54,7 +54,7 @@ export function StatsGrid() {
   });
   return (
     <div className={classes.root}>
-      <SimpleGrid cols={{ base: 1, xs: 2, md: 4 }}>{stats}</SimpleGrid>
+      <SimpleGrid breakpoints={[ {minWidth: 'base', cols: 1}, {minWidth: 'xs', cols: 2}, {minWidth: 'md', cols: 4 },]}>{stats}</SimpleGrid>
     </div>
   );
 }
