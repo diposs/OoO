@@ -8,48 +8,48 @@ export function AccDrop() {
   const getColor = (color: string) => theme.colors[color][theme.colorScheme === 'dark' ? 5 : 7];
 
   return (
-    <Accordion variant="separated" defaultValue="photos" className={classes.root}>
-      <Accordion.Item value="photos">
+    <Accordion variant="separated" defaultValue="wallet" className={classes.root}>
+      <Accordion.Item value="wallets">
         <Accordion.Control icon={<IconPhoto size={rem(20)} color={getColor('red')} />}>
-          Recent photos
+          wallets
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
 
-      <Accordion.Item value="print">
+      <Accordion.Item value="NFTs>
         <Accordion.Control icon={<IconPrinter size={rem(20)} color={getColor('blue')} />}>
-          Print photos
+          NFTS
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
 
-      <Accordion.Item value="camera">
+      <Accordion.Item value="SWAPS">
         <Accordion.Control icon={<IconCameraSelfie size={rem(20)} color={getColor('teal')} />}>
-          Camera settings
+          SWAPS
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
-      <Accordion.Item value="print1">
+      <Accordion.Item value="LIKES">
         <Accordion.Control icon={<IconPrinter size={rem(20)} color={getColor('blue')} />}>
-          Print photos
+         LIKES
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
 
-      <Accordion.Item value="camera1">
+      <Accordion.Item value="POSTs">
         <Accordion.Control icon={<IconCameraSelfie size={rem(20)} color={getColor('teal')} />}>
-          Camera settings
+          POSTs
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
-      <Accordion.Item value="print2">
+      <Accordion.Item value=LISTINGs">
         <Accordion.Control icon={<IconPrinter size={rem(20)} color={getColor('blue')} />}>
-          Print photos
+          MARKETPLACE LISTINGS
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
 
-      <Accordion.Item value="camera2">
+      <Accordion.Item value="ENCRYPTED POST">
         <Accordion.Control icon={<IconCameraSelfie size={rem(20)} color={getColor('teal')} />}>
           Camera settings
         </Accordion.Control>
