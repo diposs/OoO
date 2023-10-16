@@ -14,12 +14,14 @@ const icons = {
   discount: IconDiscount2,
   receipt: IconReceipt2,
   coin: IconCoin,
+  buildingLighthouse:IconBuildingLighthouse,
 };
 
 const data = [
   { title: 'Wallets', icon: 'receipt', value: '13,456', diff: 34 },
   { title: 'Post', icon: 'coin', value: '4,145', diff: -13 },
   { title: 'NFTs', icon: 'discount', value: '745', diff: 18 },
+  { title: 'LightHouse', icon: 'buildingLighthouse', value: '745', diff: 18 }
   { title: 'MarketPlace Listings', icon: 'user', value: '188', diff: -30 },
 ] as const;
 
@@ -54,7 +56,7 @@ export function StatsGrid() {
   });
   return (
     <div className={classes.root}>
-      <SimpleGrid breakpoints={[ {minWidth: 'base', cols: 1}, {minWidth: 'xs', cols: 2}, {minWidth: 'md', cols: 4 },]}>{stats}</SimpleGrid>
+      <SimpleGrid breakpoints={[ {minWidth: 'base', cols: 1}, {minWidth: 'xs', cols: 2}, {minWidth: 'md', cols: 5 },]}>{stats}</SimpleGrid>
     </div>
   );
 }
