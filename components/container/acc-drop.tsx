@@ -1,7 +1,7 @@
 import { IconPhoto, IconPrinter, IconCameraSelfie } from '@tabler/icons-react';
 import { Accordion, useMantineTheme, rem } from '@mantine/core';
 
-function Demo() {
+export function AccDrop() {
   const theme = useMantineTheme();
   const getColor = (color: string) => theme.colors[color][theme.colorScheme === 'dark' ? 5 : 7];
 
