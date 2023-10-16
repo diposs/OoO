@@ -10,13 +10,13 @@ export function AccDrop() {
 
   return (
     <Accordion variant="separated" multiple loop transitionDuration={1000} defaultValue={['wallets', 'NFTs','SWAPS','LIKES']} className={classes.root}>
-      <Accordion.Item value="wallets">
+      <Accordion.Item value="wallets" bg={getBgColor('pink')}>
         <Accordion.Control icon={<IconPhoto size={rem(20)} color={getColor('red')} />}>
           WALLETS
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
-      <Accordion.Item value="NFTs">
+      <Accordion.Item value="NFTs" bg={getBgColor('pink')}>
         <Accordion.Control icon={<IconPrinter size={rem(20)} color={getColor('blue')} />}>
           NFTS
         </Accordion.Control>
