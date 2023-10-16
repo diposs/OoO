@@ -18,19 +18,19 @@ const icons = {
 };
 
 const data = [
-  { title: 'Wallets', icon: 'receipt', value: '13,456', diff: 34 },
-  { title: 'Post', icon: 'coin', value: '4,145', diff: -13 },
-  { title: 'NFTs', icon: 'discount', value: '745', diff: 18 },
-  { title: 'LightHouse', icon: 'buildingLighthouse', value: '745', diff: 18 }
-  { title: 'MarketPlace Listings', icon: 'user', value: '188', diff: -30 },
+  { title: 'Wallets', icon: 'receipt', value: '13,456'},
+  { title: 'Post', icon: 'coin', value: '4,145'},
+  { title: 'NFTs', icon: 'discount', value: '745' },
+  { title: 'LightHouse', icon: 'buildingLighthouse', value: '10'},
+  { title: 'MarketPlace Listings', icon: 'user', value: '188'},
 ] as const;
 
 export function StatsGrid() {
   const { classes } = useStyles();
   const stats = data.map((stat) => {
     const Icon = icons[stat.icon];
-    const DiffIcon = stat.diff > 0 ? IconArrowUpRight : IconArrowDownRight;
-
+    const d = new Date(Date.now());
+    let textDate = d.toDateString();
     return (
       <Paper withBorder p="md" radius="md" key={stat.title}>
         <Group position="apart">
@@ -42,14 +42,10 @@ export function StatsGrid() {
 
         <Group align="flex-end" spacing="xs" mt={25}>
           <Text className={classes.value}>{stat.value}</Text>
-          <Text color={stat.diff > 0 ? 'teal' : 'red'} fz="sm" fw={500} className={classes.diff}>
-            <span>{stat.diff}%</span>
-            <DiffIcon size="1rem" stroke={1.5} />
-          </Text>
         </Group>
 
         <Text fz="xs" c="dimmed" mt={7}>
-          Compared to previous month
+          Total Count Updated at {textDate}
         </Text>
       </Paper>
     );
