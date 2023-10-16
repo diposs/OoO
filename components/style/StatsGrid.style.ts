@@ -12,8 +12,8 @@ value: {
 
 diff: {
   lineHeight: 1,
-  display: flex,
-  alignItems: center,
+  display: 'flex',
+  alignItems: 'center',
 },
 
 icon: {
@@ -22,7 +22,7 @@ icon: {
 
 title: {
   fontWeight: 700,
-  textTransform: uppercase,
+  textTransform: 'uppercase',
 },
 })
 )
