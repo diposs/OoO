@@ -16,7 +16,7 @@ export function AccDrop() {
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
 
-      <Accordion.Item value="NFTs>
+      <Accordion.Item value="NFTs">
         <Accordion.Control icon={<IconPrinter size={rem(20)} color={getColor('blue')} />}>
           NFTS
         </Accordion.Control>
@@ -42,7 +42,7 @@ export function AccDrop() {
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
-      <Accordion.Item value=LISTINGs">
+      <Accordion.Item value="LISTINGs">
         <Accordion.Control icon={<IconPrinter size={rem(20)} color={getColor('blue')} />}>
           MARKETPLACE LISTINGS
         </Accordion.Control>
