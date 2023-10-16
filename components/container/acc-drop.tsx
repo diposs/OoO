@@ -6,9 +6,10 @@ export function AccDrop() {
   const theme = useMantineTheme();
   const { classes } = useStyles();
   const getColor = (color: string) => theme.colors[color][theme.colorScheme === 'dark' ? 5 : 7];
+  const getBgColor = (color: string) => theme.colors[color][theme.colorScheme === 'dark' ? 5 : 7];
 
   return (
-    <Accordion variant="separated" multiple transitionDuration={1000} defaultValue={['wallets', 'NFTs','SWAPS','LIKES']} className={classes.root}>
+    <Accordion variant="separated" multiple loop transitionDuration={1000} bg={getColor('pink')}  defaultValue={['wallets', 'NFTs','SWAPS','LIKES']} className={classes.root}>
       <Accordion.Item value="wallets">
         <Accordion.Control icon={<IconPhoto size={rem(20)} color={getColor('red')} />}>
           WALLETS
