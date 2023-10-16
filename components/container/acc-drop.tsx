@@ -11,7 +11,7 @@ export function AccDrop() {
     <Accordion variant="separated" defaultValue="wallets" className={classes.root}>
       <Accordion.Item value="wallets">
         <Accordion.Control icon={<IconPhoto size={rem(20)} color={getColor('red')} />}>
-          wallets
+          WALLETS
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
@@ -38,7 +38,7 @@ export function AccDrop() {
 
       <Accordion.Item value="POSTs">
         <Accordion.Control icon={<IconCameraSelfie size={rem(20)} color={getColor('teal')} />}>
-          POSTs
+          POSTS
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
@@ -51,7 +51,7 @@ export function AccDrop() {
 
       <Accordion.Item value="ENCRYPTED POST">
         <Accordion.Control icon={<IconCameraSelfie size={rem(20)} color={getColor('teal')} />}>
-          Camera settings
+          ENCRYPTED POSTS
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
