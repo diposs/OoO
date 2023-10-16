@@ -60,7 +60,7 @@ export function StatsGrid() {
         <Button
         variant="subtle"
         component="a"
-        href="/settings"
+        href="../dashboard/settings"
         leftIcon={<IconSettings size={rem(18)} />}
       >
         <Text size="xs"  className={classes.title}>Settings</Text>
