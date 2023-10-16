@@ -22,7 +22,13 @@ export function AccDrop() {
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
-      <Accordion.Item value="SWAPS" bg={theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.blue[0]}>
+      <Accordion.Item value="lighthse" bg={theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.blue[0]}>
+        <Accordion.Control icon={<IconCameraSelfie size={rem(20)} color={getColor('teal')} />}>
+          LIGHTHOUSE
+        </Accordion.Control>
+        <Accordion.Panel>Content</Accordion.Panel>
+      </Accordion.Item>
+      <Accordion.Item value="SWAPS & ROUTES" bg={theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.blue[0]}>
         <Accordion.Control icon={<IconCameraSelfie size={rem(20)} color={getColor('teal')} />}>
           SWAPS
         </Accordion.Control>
