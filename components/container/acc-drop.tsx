@@ -10,20 +10,18 @@ export function AccDrop() {
 
   return (
     <Accordion variant="separated" multiple loop transitionDuration={1000} defaultValue={['wallets', 'NFTs','SWAPS','LIKES']} className={classes.root}>
-      <Accordion.Item value="wallets" bg={getColor('pink')}>
+      <Accordion.Item value="wallets">
         <Accordion.Control icon={<IconPhoto size={rem(20)} color={getColor('red')} />}>
           WALLETS
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
-
       <Accordion.Item value="NFTs">
         <Accordion.Control icon={<IconPrinter size={rem(20)} color={getColor('blue')} />}>
           NFTS
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
-
       <Accordion.Item value="SWAPS">
         <Accordion.Control icon={<IconCameraSelfie size={rem(20)} color={getColor('teal')} />}>
           SWAPS
@@ -36,7 +34,6 @@ export function AccDrop() {
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
-
       <Accordion.Item value="POSTs">
         <Accordion.Control icon={<IconCameraSelfie size={rem(20)} color={getColor('teal')} />}>
           POSTS
@@ -49,7 +46,6 @@ export function AccDrop() {
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
-
       <Accordion.Item value="ENCRYPTED POST">
         <Accordion.Control icon={<IconCameraSelfie size={rem(20)} color={getColor('teal')} />}>
           ENCRYPTED POSTS
