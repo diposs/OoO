@@ -1,4 +1,4 @@
-import { Group, Paper, Blockquote, Button, SimpleGrid, Text } from '@mantine/core';
+import { Group, Paper, Blockquote, Button, SimpleGrid, Text, rem } from '@mantine/core';
 import {
   IconUserPlus,
   IconDiscount2,
