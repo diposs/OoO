@@ -8,7 +8,7 @@ export function AccDrop() {
   const getColor = (color: string) => theme.colors[color][theme.colorScheme === 'dark' ? 5 : 7];
 
   return (
-    <Accordion variant="separated" defaultValue="photos" className={classes.root} mt={12}>
+    <Accordion variant="separated" defaultValue="photos" className={classes.root}>
       <Accordion.Item value="photos">
         <Accordion.Control icon={<IconPhoto size={rem(20)} color={getColor('red')} />}>
           Recent photos
