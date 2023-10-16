@@ -5,7 +5,7 @@ export default createStyles ((theme) => ({
   },
 
 value: {
-  fontSize: rem(24px),
+  fontSize: rem('24px'),
   fontWeight: 700,
   lineHeight: 1,
 },
