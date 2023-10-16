@@ -10,43 +10,43 @@ export function AccDrop() {
 
   return (
     <Accordion variant="separated" multiple loop transitionDuration={1000} defaultValue={['wallets', 'NFTs','SWAPS','LIKES']} className={classes.root}>
-      <Accordion.Item value="wallets" bg={getBgColor('pink')}>
+      <Accordion.Item value="wallets" bg={theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.blue[0]}>
         <Accordion.Control icon={<IconPhoto size={rem(20)} color={getColor('red')} />}>
           WALLETS
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
-      <Accordion.Item value="NFTs" bg={getBgColor('pink')}>
+      <Accordion.Item value="NFTs" bg={theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.blue[0]}>
         <Accordion.Control icon={<IconPrinter size={rem(20)} color={getColor('blue')} />}>
           NFTS
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
-      <Accordion.Item value="SWAPS">
+      <Accordion.Item value="SWAPS" bg={theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.blue[0]}>
         <Accordion.Control icon={<IconCameraSelfie size={rem(20)} color={getColor('teal')} />}>
           SWAPS
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
-      <Accordion.Item value="LIKES">
+      <Accordion.Item value="LIKES" bg={theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.blue[0]}>
         <Accordion.Control icon={<IconPrinter size={rem(20)} color={getColor('blue')} />}>
          LIKES
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
-      <Accordion.Item value="POSTs">
+      <Accordion.Item value="POSTs" bg={theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.blue[0]}>
         <Accordion.Control icon={<IconCameraSelfie size={rem(20)} color={getColor('teal')} />}>
           POSTS
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
-      <Accordion.Item value="LISTINGs">
+      <Accordion.Item value="LISTINGs" bg={theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.blue[0]}>
         <Accordion.Control icon={<IconPrinter size={rem(20)} color={getColor('blue')} />}>
           MARKETPLACE LISTINGS
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
-      <Accordion.Item value="ENCRYPTED POST">
+      <Accordion.Item value="ENCRYPTED POST" bg={theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.blue[0]}>
         <Accordion.Control icon={<IconCameraSelfie size={rem(20)} color={getColor('teal')} />}>
           ENCRYPTED POSTS
         </Accordion.Control>
