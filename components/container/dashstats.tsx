@@ -31,16 +31,16 @@ export function StatsGrid() {
 
     return (
       <Paper withBorder p="md" radius="md" key={stat.title}>
-        <Group justify="space-between">
-          <Text size="xs" c="dimmed" className={classes.title}>
+        <Group position="apart">
+          <Text size="xs" color="dimmed" className={classes.title}>
             {stat.title}
           </Text>
           <Icon className={classes.icon} size="1.4rem" stroke={1.5} />
         </Group>
 
-        <Group align="flex-end" gap="xs" mt={25}>
+        <Group align="flex-end" spacing="xs" mt={25}>
           <Text className={classes.value}>{stat.value}</Text>
-          <Text c={stat.diff > 0 ? 'teal' : 'red'} fz="sm" fw={500} className={classes.diff}>
+          <Text color={stat.diff > 0 ? 'teal' : 'red'} fz="sm" fw={500} className={classes.diff}>
             <span>{stat.diff}%</span>
             <DiffIcon size="1rem" stroke={1.5} />
           </Text>
