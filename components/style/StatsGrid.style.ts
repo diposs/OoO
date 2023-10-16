@@ -3,7 +3,7 @@ import { createStyles } from '@mantine/core';
 
 export default createStyles ((theme) => ({
   root: {
-  padding: calc(1.25rem * 1.5),
+  padding: 1.25rem * 1.5,
 },
 
 value: {
