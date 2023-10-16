@@ -3,8 +3,8 @@ import { createStyles } from '@mantine/core';
 
 export default createStyles ((theme) => ({
   root: {
-  padding: (${1.25}rem * 1.5),
-},
+    padding: theme.spacing.xl * 1.5,
+  },
 
 value: {
   fontSize: rem(24px),
