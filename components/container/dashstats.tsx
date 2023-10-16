@@ -17,10 +17,10 @@ const icons = {
 };
 
 const data = [
-  { title: 'Revenue', icon: 'receipt', value: '13,456', diff: 34 },
-  { title: 'Profit', icon: 'coin', value: '4,145', diff: -13 },
-  { title: 'Coupons usage', icon: 'discount', value: '745', diff: 18 },
-  { title: 'New customers', icon: 'user', value: '188', diff: -30 },
+  { title: 'Wallets', icon: 'receipt', value: '13,456', diff: 34 },
+  { title: 'Post', icon: 'coin', value: '4,145', diff: -13 },
+  { title: 'NFTs', icon: 'discount', value: '745', diff: 18 },
+  { title: 'Listings', icon: 'user', value: '188', diff: -30 },
 ] as const;
 
 export function StatsGrid() {
