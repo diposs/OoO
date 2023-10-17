@@ -1,5 +1,5 @@
 import { IconPhoto, IconPrinter, IconCameraSelfie } from '@tabler/icons-react';
-import { Accordion, useMantineTheme, rem } from '@mantine/core';
+import { Accordion, useMantineTheme, rem, Indicator } from '@mantine/core';
 import  useStyles  from '../style/StatsGrid.style';
 
 export function AccDrop() {
@@ -23,7 +23,7 @@ export function AccDrop() {
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
       <Accordion.Item value="lighthse" bg={theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.blue[0]}>
-        <Accordion.Control icon={<IconCameraSelfie size={rem(20)} color={getColor('teal')} />}>
+        <Accordion.Control icon={ <Indicator inline label="New" processing size={16}><IconCameraSelfie size={rem(20)} color={getColor('teal')} /></Indicator>}>
           LIGHTHOUSE
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
