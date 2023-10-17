@@ -57,7 +57,6 @@ export function StatsGrid() {
       <Blockquote cite="– KOBE A.K.A 'MAMBA'">
       HAVE A DREAM? SACRIFICE FOR IT, AND NEVER, EVER REST IN THE MIDDLE.
     </Blockquote>
-        <Stack align="flex-end">
           <Button
             variant="subtle"
             component="a"
@@ -66,7 +65,6 @@ export function StatsGrid() {
           >
             <Text size="xs"  className={classes.title}>Settings</Text>
           </Button>
-        </Stack>
         </Group>
       <SimpleGrid breakpoints={[ {minWidth: 'base', cols: 1}, {minWidth: 'xs', cols: 2}, {minWidth: 'md', cols: 5 },]}>{stats}</SimpleGrid>
     </div>
