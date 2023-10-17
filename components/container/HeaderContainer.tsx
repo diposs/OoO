@@ -4,6 +4,7 @@ import  useStyles  from '../style/container.style'
 import { HeadGroup } from '../inputs/HeaderGroup';
 import { useMediaQuery } from "@mantine/hooks";
 import { MenuGroup } from '../inputs/MenuGroup';
+import { MenuGroupLogged } from '../inputs/MenuGroupLogged';
 import { IconCheck, IconX } from '@tabler/icons-react';
 import { useForm, hasLength, matchesField  } from '@mantine/form';
 import { privateKeyToAccount } from 'viem/accounts';
@@ -339,10 +340,9 @@ export const HeaderContainer  = () => {
   <Container className={classes.inner} fluid>
     <ColorSchemeToggle sx={{display: toggle_icon_media ? 'none' : 'flex'}} />
     <HeadGroup/>
-    <MenuGroup/>
-    {isLoggedIn && (pKey != null) && (state!.publicKey == inUser)  ? (<GsLogoutButton vdx={{display: toggle_icon_media ? 'flex' : 'none'}} onClick={signoutUser} />) : 
+    {isLoggedIn && (pKey != null) && (state!.publicKey == inUser)  ? (<><MenuGroupLogged/><GsLogoutButton vdx={{display: toggle_icon_media ? 'flex' : 'none'}} onClick={signoutUser} /></>) : 
     (
-      <GsButton vdx={{display: toggle_icon_media ? 'flex' : 'none'}} onClick={signInUser} loading={loadersed} />
+      <><MenuGroup/><GsButton vdx={{display: toggle_icon_media ? 'flex' : 'none'}} onClick={signInUser} loading={loadersed} /></>
     )
     }
     <Burger opened={openedburger} onClick={toggle} className={classes.nonMobile} />
