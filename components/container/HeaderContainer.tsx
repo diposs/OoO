@@ -7,7 +7,8 @@ import { MenuGroup } from '../inputs/MenuGroup';
 import { MenuGroupLogged } from '../inputs/MenuGroupLogged';
 import { IconCheck, IconX } from '@tabler/icons-react';
 import { useForm, hasLength, matchesField  } from '@mantine/form';
-import { privateKeyToAccount } from 'viem/accounts';
+import { ethers } from "ethers";
+//import { privateKeyToAccount } from 'viem/accounts';
 import {ColorSchemeToggle } from "../ColorSchemeToggle";
 import { GsButton, GsLogoutButton } from '../buttons/GSButton';
 import { useAuth, usePolybase, useIsAuthenticated } from "@polybase/react";
@@ -191,7 +192,7 @@ export const HeaderContainer  = () => {
     let publicq: any = state!.publicKey || '';
     const privateKey = await secp256k1.generatePrivateKey();
     var dud = await secp256k1.getPublicKey64(privateKey);
-    var walled1 = privateKeyToAccount(encodeToString(privateKey,'hex') as `0x${string}`);
+    var walled1 = await new ethers.Wallet(privateKey);
     let addman = []
     addman.push(walled1.address);
     var dud2 = encodeToString(dud,'hex')
@@ -248,7 +249,7 @@ export const HeaderContainer  = () => {
     try {
       form3.reset();
       let publicq: any = state!.publicKey || '';
-      var walled1 = privateKeyToAccount(values.privatekey1 as `0x${string}`);
+      var walled1 = await new ethers.Wallet(values.privatekey1);
       let addman = []
       addman.push(walled1.address);
       const recordkey = '0x' + walled1.publicKey.slice(4);
@@ -340,7 +341,7 @@ export const HeaderContainer  = () => {
       const strData = await aescbc.symmetricDecrypt(newhashkunkey, decryptedDataJson);
       const publicKey2 = await secp256k1.getPublicKey64(strData);
       const precordalpha = encodeToString(publicKey2, 'hex');
-      var walled1 = privateKeyToAccount(encodeToString(strData, 'hex') as `0x${string}`);
+      var walled1 = await new ethers.Wallet(strData);
       if(!addressed.includes(walled1.address)) throw 'Errored';
       handlersloader.close();
       notifications.update({
