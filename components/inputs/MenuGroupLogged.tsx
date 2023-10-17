@@ -1,7 +1,7 @@
 import {Group, Menu, Center} from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconChevronDown } from '@tabler/icons-react';
-import {items} from '../menu/menucontent';
+import {items} from '../menu/menucontentloggedin';
 import useStyles from '../style/MenuCss.style';
 
 export const MenuGroupLogged = () => {
