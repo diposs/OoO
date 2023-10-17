@@ -11,18 +11,88 @@ import { privateKeyToAccount } from 'viem/accounts';
 import {ColorSchemeToggle } from "../ColorSchemeToggle";
 import { GsButton, GsLogoutButton } from '../buttons/GSButton';
 import { useAuth, usePolybase, useIsAuthenticated } from "@polybase/react";
-//import { secp256k1, aescbc, decodeFromString, encodeToString, EncryptedDataAesCbc256 } from '@polybase/util';
+import { secp256k1, aescbc, decodeFromString, encodeToString, EncryptedDataAesCbc256 } from '@polybase/util';
 import { useBoundStore3} from '../../stores/datastate';
-//import { hashEthereumSignedMessage  } from '@polybase/eth'
+import { hashEthereumSignedMessage  } from '@polybase/eth'
 import { notifications } from '@mantine/notifications';
 import { useEffect, useState } from 'react';
 
+interface FormValues {
+  password: string;
+  confirmPassword: string;
+}
+interface FormValues3 {
+  privatekey1: string;
+  password: string;
+  confirmPassword: string;
+}
+interface FormValues2 {
+  password: string;
+}
+function PasswordRequirement({ meets, label }: { meets: boolean; label: string }) {
+  return (
+    <Text color={meets ? 'teal' : 'red'} mt={5} size="sm">
+      <Center inline>
+        {meets ? <IconCheck size="0.9rem" stroke={1.5} /> : <IconX size="0.9rem" stroke={1.5} />}
+        <Box ml={7}>{label}</Box>
+      </Center>
+    </Text>
+  );
+}
+
+const requirements = [
+  { re: /[0-9]/, label: 'Includes number' },
+  { re: /[a-z]/, label: 'Includes lowercase letter' },
+  { re: /[A-Z]/, label: 'Includes uppercase letter' },
+  { re: /[$&+,:;=?@#|'<>.^*()%!-]/, label: 'Includes special symbol' },
+];
+
+function getStrength(password: string) {
+  let multiplier = password.length > 5 ? 0 : 1;
+
+  requirements.forEach((requirement) => {
+    if (!requirement.re.test(password)) {
+      multiplier += 1;
+    }
+  });
+
+  return Math.max(100 - (100 / (requirements.length + 1)) * multiplier, 0);
+}
 
 export const HeaderContainer  = () => {
+  const form = useForm({
+    initialValues: {
+      password: '',
+      confirmPassword: '',
+    },
+    validate: {
+      password:(value) => getStrength(value) !== 100 ? 'Passwords did not meet requirements' : null,
+      confirmPassword: matchesField('password', 'Passwords are not the same'),
+    },
+  });
+  const form3 = useForm({
+    initialValues: {
+      privatekey1: '',
+      password: '',
+      confirmPassword: '',
+    },
+    validate: {
+      password:(value) => getStrength(value) !== 100 ? 'Passwords did not meet requirements' : null,
+      confirmPassword: matchesField('password', 'Passwords are not the same'),
+    },
+  });
+  const form2 = useForm({
+    initialValues: {
+      password: '',
+    },
+  });
 
   const toggle_icon_media = useMediaQuery('(min-width: 48em)');
   const { classes } = useStyles();
   const { auth, state } = useAuth();
+  const [opened, { open, close }] = useDisclosure(false);
+  const [opened2, handlers] = useDisclosure(false);
+  const [opened3, handlers3] = useDisclosure(false);
   const [loadersed, handlersloader] = useDisclosure(false);
   const [openedburger, { toggle }] = useDisclosure(false);
   const [pvkeyst, setPvkeyst] = useState<string>('')
@@ -69,15 +139,15 @@ export const HeaderContainer  = () => {
       const exists = userData.exists();
       if(exists == false){
         if(res!.type =='email'){
-          //open();//handlers.open();//open();
+          open();//handlers.open();//open();
         } else{
-         // handlers3.open()
+          handlers3.open()
         }
       }else{
         setPvkeyst(userData.data.pvkeyst as string ||'');
         setAddressed(userData.data.address as string[] ||['']);
         updatelighthouseapi(userData.data.lighthousekeyst as string ||'');
-       // handlers.open();
+        handlers.open();
         notifications.update({
         id: 'Login',
         withCloseButton: true,
@@ -112,7 +182,7 @@ export const HeaderContainer  = () => {
     setAddressed(['']);
     updatelighthouseapi(null);
   }
-  /**const handleSubmit = async(values: FormValues) => {
+  const handleSubmit = async(values: FormValues) => {
     form.reset();
     let publicq: any = state!.publicKey || '';
     const privateKey = await secp256k1.generatePrivateKey();
@@ -328,7 +398,8 @@ export const HeaderContainer  = () => {
         key={index}
         size={4}
       />
-    ));**/
+    ));
+    
   useEffect(() => {
     auth!.onAuthUpdate((authState) => {
       if (authState!)   {
@@ -346,7 +417,7 @@ export const HeaderContainer  = () => {
     )
     }
     <Burger opened={openedburger} onClick={toggle} className={classes.nonMobile} />
-    {/**<Modal opened={opened} onClose={close} size="auto" centered withCloseButton={false} closeOnClickOutside={false}>
+    <Modal opened={opened} onClose={close} size="auto" centered withCloseButton={false} closeOnClickOutside={false}>
       <Box component="form" miw={{ base: "100%", xs: 343, sm: 343, md: 343, lg: 343, xl: 343 }} mx="auto" onSubmit={form.onSubmit(handleSubmit)}>
         <PasswordInput placeholder="Your password" label="Password" required {...form.getInputProps('password')} />
         <Group spacing={5} grow mt="xs" mb="md">
@@ -385,7 +456,7 @@ export const HeaderContainer  = () => {
           <Button type="submit">Submit</Button>
         </Group>
       </Box>
-    </Modal>**/}
+    </Modal>
     <Drawer opened={openedburger} onClose={toggle} classNames={{root: classes.nonMobile, content: classes.controldd,}} position="bottom" size='60dvh' title="  " withCloseButton={false}>
       {isLoggedIn && (pKey != null) && (state!.publicKey == inUser)  ? 
         (<>
