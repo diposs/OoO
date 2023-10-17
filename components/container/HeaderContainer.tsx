@@ -16,6 +16,10 @@ import { useBoundStore3} from '../../stores/datastate';
 import { hashEthereumSignedMessage  } from '@polybase/eth'
 import { notifications } from '@mantine/notifications';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
+import lighthouse from '@lighthouse-web3/sdk';
+import { newDelegatedEthAddress } from '@glif/filecoin-address';
+
 
 interface FormValues {
   password: string;
