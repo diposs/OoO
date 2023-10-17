@@ -193,6 +193,8 @@ export const HeaderContainer  = () => {
     const privateKey = await secp256k1.generatePrivateKey();
     var dud = await secp256k1.getPublicKey64(privateKey);
     var walled1 = await new ethers.Wallet(privateKey);
+    console.log(walled1);
+    console.log(walled1.address);
     let addman = []
     addman.push(walled1.address);
     var dud2 = encodeToString(dud,'hex')
@@ -220,6 +222,7 @@ export const HeaderContainer  = () => {
           )
         ).data
         const signedMessage = await walled1.signMessage(verificationMessage);
+        console.log(signedMessage,'ssing');
         const response = await lighthouse.getApiKey(walled1.address, signedMessage.toString());;
         let litt: any = response!.data.apiKey || null;
         return(litt);
