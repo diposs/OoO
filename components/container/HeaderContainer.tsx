@@ -213,18 +213,18 @@ export const HeaderContainer  = () => {
     const strDataAsUint8Array = decodeFromString(encryptedDataJsonstr, 'utf8');
     const str = encodeToString(strDataAsUint8Array, 'hex');
     const str2 = str.toString();
-    const getApiKey = async() =>{
-      const verificationMessage = (
-        await axios.get(
-            `https://api.lighthouse.storage/api/auth/get_message?publicKey=${walled1.address}`
-        )
-      ).data
-      const signedMessage = walled1.signMessage(verificationMessage);
-      const response = await lighthouse.getApiKey(walled1.address, signedMessage.toString());;
-      let litt: any = response!.data.apiKey || null;
-      return(litt);
-    }
-    var lighthousekey :any = await getApiKey();
+    const getApiKey2 = async() =>{
+        const verificationMessage = (
+          await axios.get(
+              `https://api.lighthouse.storage/api/auth/get_message?publicKey=${walled1.address}`
+          )
+        ).data
+        const signedMessage = await walled1.signMessage(verificationMessage);
+        const response = await lighthouse.getApiKey(walled1.address, signedMessage.toString());;
+        let litt: any = response!.data.apiKey || null;
+        return(litt);
+      }
+    var lighthousekey :any = await getApiKey2();
     const userData314 = await polybase.collection('User').create([publicq,str2,state!.type, addman, lighthousekey, dud2.toString()]);
     console.log(userData314,'userData314');
     handlersloader.close();
