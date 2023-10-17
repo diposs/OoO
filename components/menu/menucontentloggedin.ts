@@ -1,21 +1,16 @@
 export const items:{link:string;label:string;links?:{link:string;label:string;}[];}[]=
 [
-{"link":"/about","label":"Features"},
-{"link":"#1","label":"Learn",
-"links":[
-{"link":"/docs","label":"Documentation"},
-{"link":"/resources","label":"Resources"},
-{"link":"/community","label":"Community"},
-{"link":"/blog","label":"Blog"}
-]
-},
-{"link":"/about","label":"About"},
-{"link":"/pricing","label":"Pricing"},
+{"link":"/dashboard","label":"Dashboard"},
+{"link":"../marketplace","label":"MarketPlace"},
+{"link":"../waterfall","label":"WaterFall"},
+{"link":"../flow","label":"Flow"},
+{"link":"../lab","label":"Lab"},
+{"link":"../backroom","label":"Backroom"},
 {"link":"#2","label":"Support",
 "links":[
-{"link":"/faq","label":"FAQ"},
-{"link":"/demo","label":"Book a demo"},
-{"link":"/forums","label":"Forums"}
+{"link":"../faq","label":"FAQ"},
+{"link":"../support-talks","label":"Chat with Support"},
+{"link":"../OoO","label":"OoO"}
 ]
 }
 ];
