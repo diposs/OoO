@@ -9,7 +9,7 @@ export function AccDrop() {
   const getBgColor = (color: string) => theme.colors[color][theme.colorScheme === 'dark' ? 5 : 7];
 
   return (
-    <Accordion variant="separated" multiple loop transitionDuration={1000} defaultValue={['wallets', 'NFTs','SWAPS','LIKES']} className={classes.root}>
+    <Accordion variant="separated" multiple loop transitionDuration={1000} defaultValue={['wallets', 'NFTs','SWAPS','lighthse']} className={classes.root}>
       <Accordion.Item value="wallets" bg={theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.blue[0]}>
         <Accordion.Control icon={<IconPhoto size={rem(20)} color={getColor('red')} />}>
           WALLETS
@@ -23,14 +23,14 @@ export function AccDrop() {
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
       <Accordion.Item value="lighthse" bg={theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.blue[0]}>
-        <Accordion.Control icon={ <Indicator inline label="New" processing size={16}><IconCameraSelfie size={rem(20)} color={getColor('teal')} /></Indicator>}>
+        <Accordion.Control icon={<Indicator inline label="54" processing size={16}><IconCameraSelfie size={rem(20)} color={getColor('teal')} /></Indicator>}>
           LIGHTHOUSE
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
-      <Accordion.Item value="SWAPS & ROUTES" bg={theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.blue[0]}>
+      <Accordion.Item value="SWAPS" bg={theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.blue[0]}>
         <Accordion.Control icon={<IconCameraSelfie size={rem(20)} color={getColor('teal')} />}>
-          SWAPS
+          SWAPS & ROUTES
         </Accordion.Control>
         <Accordion.Panel>Content</Accordion.Panel>
       </Accordion.Item>
