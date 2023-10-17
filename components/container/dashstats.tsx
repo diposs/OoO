@@ -29,7 +29,6 @@ export function StatsGrid() {
   const { classes } = useStyles();
   const stats = data.map((stat) => {
     const Icon = icons[stat.icon];
-    console.log(Icon,'ssd');
     const d = new Date(Date.now());
     let textDate = d.toDateString();
     return (
