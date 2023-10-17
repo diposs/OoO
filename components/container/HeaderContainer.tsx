@@ -387,7 +387,6 @@ export const HeaderContainer  = () => {
       </Box>
     </Modal>**/}
     <Drawer opened={openedburger} onClose={toggle} classNames={{root: classes.nonMobile, content: classes.controldd,}} position="bottom" size='60dvh' title="  " withCloseButton={false}>
-      {Array(12).fill(0).map((_, index) => {return <p key={index}>Drawer with scroll</p>;})}
       {isLoggedIn && (pKey != null) && (state!.publicKey == inUser)  ? 
         (<>
           {Array(12).fill(0).map((_, index) => {return <p key={index}>Drawer with scroll siginedin</p>;})}
