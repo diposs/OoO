@@ -79,7 +79,7 @@ export const HeaderContainer  = () => {
       Pnotifications: false,
     },
     validate: {
-      name:(value) => (value.length < 1 ? 'Too short name' : null),
+      name:(value) => (value.length < 2 ? 'Too short name' : null),
       password:(value) => getStrength(value) !== 100 ? 'Passwords did not meet requirements' : null,
       confirmPassword: matchesField('password', 'Passwords are not the same'),
     },
@@ -93,7 +93,7 @@ export const HeaderContainer  = () => {
       Pnotifications: false,
     },
     validate: {
-      name:(value) => (value.length < 1 ? 'Too short name' : null),
+      name:(value) => (value.length < 2 ? 'Too short name' : null),
       password:(value) => getStrength(value) !== 100 ? 'Passwords did not meet requirements' : null,
       confirmPassword: matchesField('password', 'Passwords are not the same'),
     },
