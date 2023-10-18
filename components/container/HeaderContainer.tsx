@@ -86,7 +86,7 @@ export const HeaderContainer  = () => {
   });
   const form3 = useForm({
     initialValues: {
-      name: 'Jane John Doe',
+      name: '',
       privatekey1: '',
       password: '',
       confirmPassword: '',
@@ -479,7 +479,7 @@ export const HeaderContainer  = () => {
         <PasswordRequirement label="Has at least 6 characters" meets={valued3.length >= 6} />
         {checks3}
         <PasswordInput placeholder="Confirm Password" label="Confirm Password" required{...form3.getInputProps('confirmPassword')} />
-        <Checkbox mt="md" label="Opt-in to Channel Push Notification" {...form.getInputProps('Pnotifications', { type: 'checkbox' })} />
+        <Checkbox mt="md" label="Opt-in to Channel Push Notification" {...form3.getInputProps('Pnotifications', { type: 'checkbox' })} />
         <Group position="center" mt="md">
           <Button type="submit">Submit</Button>
         </Group>
