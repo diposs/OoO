@@ -1,4 +1,4 @@
-import { Container, Modal, Button, Group, TextInput, Box , Burger, Drawer,Progress, PasswordInput, Text, Center, Checkbox  } from '@mantine/core';
+import { Container, Modal, Button, Group, TextInput, Box , Burger, Drawer,Progress, PasswordInput, Text, Center, Checkbox, Avatar  } from '@mantine/core';
 import { useDisclosure  } from '@mantine/hooks';
 import  useStyles  from '../style/container.style'
 import { HeadGroup } from '../inputs/HeaderGroup';
