@@ -326,6 +326,7 @@ export const HeaderContainer  = () => {
       setAddressed(addman);
       updatelighthouseapi(lighthousekey);
       handlers3.close();
+      overlayed.close();
     }catch(e){
       console.log(e);
       overlayed.close();
@@ -384,6 +385,7 @@ export const HeaderContainer  = () => {
       updatepKey(publicKey2);
       updatepvKey(strData);
       handlers.close();
+      overlayed.close();
     }catch(e){
       console.log('Error log',e);
       overlayed.close();
