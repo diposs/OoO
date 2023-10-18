@@ -85,7 +85,7 @@ export const HeaderContainer  = () => {
   });
   const form3 = useForm({
     initialValues: {
-      name: 'Jane John Doe'
+      name: 'Jane John Doe',
       privatekey1: '',
       password: '',
       confirmPassword: '',
