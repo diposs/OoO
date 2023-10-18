@@ -1,4 +1,4 @@
-import { Container, Modal, Button, Group, TextInput, Box , Burger, Drawer,Progress, PasswordInput, Text, Center, Checkbox, Avatar  } from '@mantine/core';
+import { Container, Modal, Button, Group, TextInput, Box , Burger, Drawer,Progress, PasswordInput, Text, Center, Checkbox, Avatar, LoadingOverlay  } from '@mantine/core';
 import { useDisclosure  } from '@mantine/hooks';
 import  useStyles  from '../style/container.style'
 import { HeadGroup } from '../inputs/HeaderGroup';
@@ -109,6 +109,7 @@ export const HeaderContainer  = () => {
   const { auth, state } = useAuth();
   const [opened, { open, close }] = useDisclosure(false);
   const [opened2, handlers] = useDisclosure(false);
+  const [visible, overlayed] = useDisclosure(false)
   const [opened3, handlers3] = useDisclosure(false);
   const [loadersed, handlersloader] = useDisclosure(false);
   const [openedburger, { toggle }] = useDisclosure(false);
@@ -200,7 +201,9 @@ export const HeaderContainer  = () => {
     updatelighthouseapi(null);
   }
   const handleSubmit = async(values: FormValues) => {
-    console.log(values)
+    console.log(values);
+    overlayed.open();
+    try {
     form.reset();
     let publicq: any = state!.publicKey || '';
     const privateKey = await secp256k1.generatePrivateKey();
@@ -258,9 +261,14 @@ export const HeaderContainer  = () => {
     setAddressed(addman);
     updatelighthouseapi(lighthousekey);
     close();
+      overlayed.close();
+    }catch(e){
+      overlayed.close();
+    }
   }
   const handleSubmit3 = async(values: FormValues3) => {
-    console.log(values)
+    console.log(values);
+    overlayed.open();
     try {
       form3.reset();
       let publicq: any = state!.publicKey || '';
@@ -320,12 +328,14 @@ export const HeaderContainer  = () => {
       handlers3.close();
     }catch(e){
       console.log(e);
+      overlayed.close();
       form3.setErrors({privatekey1: <p>Invalid PrivateKey</p>,});
       form3.errors;
     }
   }
   const handleSubmit2 = async(values: FormValues2) => {
     console.log(values)
+    overlayed.open();
     try {
       form2.reset();
       let publicq: any = state!.publicKey || '';
@@ -376,6 +386,7 @@ export const HeaderContainer  = () => {
       handlers.close();
     }catch(e){
       console.log('Error log',e);
+      overlayed.close();
       form2.setErrors({ password: <p>Invalid Email/Password/PublicKey</p>, });
       form2.errors;
     }
@@ -440,6 +451,7 @@ export const HeaderContainer  = () => {
     <Burger opened={openedburger} onClick={toggle} className={classes.nonMobile} />
     <Modal opened={opened} onClose={close} size="auto" centered withCloseButton={false} closeOnClickOutside={false}>
       <Box component="form" miw={{ base: "100%", xs: 343, sm: 343, md: 343, lg: 343, xl: 343 }} mx="auto" onSubmit={form.onSubmit(handleSubmit)}>
+        <LoadingOverlay visible={visible} loaderProps={{ size: 'xl', color: 'blue', variant: 'oval' }} overlayBlur={2} />
         <TextInput placeholder="Jane John Doe" label="Name" required {...form.getInputProps('name')} />
         <PasswordInput placeholder="Your password" label="Password" required {...form.getInputProps('password')} />
         <Group spacing={5} grow mt="xs" mb="md">
@@ -456,6 +468,7 @@ export const HeaderContainer  = () => {
     </Modal>
     <Modal opened={opened2} onClose={() => handlers.close()} size="auto" centered withCloseButton={false} closeOnClickOutside={false}>
       <Box component="form" miw={{ base: "100%", xs: 277, sm: 277, md: 277, lg: 277, xl: 277 }} mx="auto" onSubmit={form2.onSubmit(handleSubmit2)}>
+        <LoadingOverlay visible={visible} loaderProps={{ size: 'xl', color: 'blue', variant: 'oval' }} overlayBlur={2} />
         <center>
           <Avatar color="cyan" radius="xl">MK</Avatar>
         </center>
@@ -470,6 +483,7 @@ export const HeaderContainer  = () => {
     </Modal>
     <Modal opened={opened3} onClose={() => handlers3.close()} size="auto" centered withCloseButton={false} closeOnClickOutside={false}>
       <Box component="form" miw={{ base: "100%", xs: 402, sm: 402, md: 402, lg: 402, xl: 402 }} mx="auto" onSubmit={form3.onSubmit(handleSubmit3)}>
+        <LoadingOverlay visible={visible} loaderProps={{ size: 'xl', color: 'blue', variant: 'oval' }} overlayBlur={2} />
         <TextInput placeholder="Jane John Doe" label="Name" required {...form3.getInputProps('name')} />
         <TextInput placeholder="Your Private Key" label="Private Key" required {...form3.getInputProps('privatekey1')} />
         <PasswordInput placeholder="Your password" label="Password" required {...form3.getInputProps('password')} />
