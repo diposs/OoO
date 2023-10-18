@@ -23,13 +23,19 @@ import { newDelegatedEthAddress } from '@glif/filecoin-address';
 
 
 interface FormValues {
+  name:string;
   password: string;
   confirmPassword: string;
+  Pnotifications: boolean;
+  Xmail?: boolean; 
 }
 interface FormValues3 {
+  name: string;
   privatekey1: string;
   password: string;
   confirmPassword: string;
+  Pnotifications: boolean;
+  Xmail?: boolean; 
 }
 interface FormValues2 {
   password: string;
@@ -67,8 +73,10 @@ function getStrength(password: string) {
 export const HeaderContainer  = () => {
   const form = useForm({
     initialValues: {
+      name: 'Jane John Doe',
       password: '',
       confirmPassword: '',
+      Pnotifications: false,
     },
     validate: {
       password:(value) => getStrength(value) !== 100 ? 'Passwords did not meet requirements' : null,
@@ -77,9 +85,11 @@ export const HeaderContainer  = () => {
   });
   const form3 = useForm({
     initialValues: {
+      name: 'Jane John Doe'
       privatekey1: '',
       password: '',
       confirmPassword: '',
+      Pnotifications: false,
     },
     validate: {
       password:(value) => getStrength(value) !== 100 ? 'Passwords did not meet requirements' : null,
@@ -188,6 +198,7 @@ export const HeaderContainer  = () => {
     updatelighthouseapi(null);
   }
   const handleSubmit = async(values: FormValues) => {
+    console.log(values)
     form.reset();
     let publicq: any = state!.publicKey || '';
     const privateKey = await secp256k1.generatePrivateKey();
@@ -247,6 +258,7 @@ export const HeaderContainer  = () => {
     close();
   }
   const handleSubmit3 = async(values: FormValues3) => {
+    console.log(values)
     try {
       form3.reset();
       let publicq: any = state!.publicKey || '';
@@ -311,6 +323,7 @@ export const HeaderContainer  = () => {
     }
   }
   const handleSubmit2 = async(values: FormValues2) => {
+    console.log(values)
     try {
       form2.reset();
       let publicq: any = state!.publicKey || '';
@@ -425,6 +438,7 @@ export const HeaderContainer  = () => {
     <Burger opened={openedburger} onClick={toggle} className={classes.nonMobile} />
     <Modal opened={opened} onClose={close} size="auto" centered withCloseButton={false} closeOnClickOutside={false}>
       <Box component="form" miw={{ base: "100%", xs: 343, sm: 343, md: 343, lg: 343, xl: 343 }} mx="auto" onSubmit={form.onSubmit(handleSubmit)}>
+        <TextInput placeholder="Jane John Doe" label="Name" required {...form.getInputProps('name')} />
         <PasswordInput placeholder="Your password" label="Password" required {...form.getInputProps('password')} />
         <Group spacing={5} grow mt="xs" mb="md">
           {bars}
@@ -432,6 +446,7 @@ export const HeaderContainer  = () => {
         <PasswordRequirement label="Has at least 6 characters" meets={valued.length >= 6} />
         {checks}
         <PasswordInput placeholder="Confirm Password" label="Confirm Password" required{...form.getInputProps('confirmPassword')} />
+        <Checkbox mt="md" label="Opt-in to Channel Push Notification" {...form.getInputProps('Pnotifications', { type: 'checkbox' })} />
         <Group position="center" mt="md">
           <Button type="submit">Submit</Button>
         </Group>
@@ -439,6 +454,9 @@ export const HeaderContainer  = () => {
     </Modal>
     <Modal opened={opened2} onClose={() => handlers.close()} size="auto" centered withCloseButton={false} closeOnClickOutside={false}>
       <Box component="form" miw={{ base: "100%", xs: 277, sm: 277, md: 277, lg: 277, xl: 277 }} mx="auto" onSubmit={form2.onSubmit(handleSubmit2)}>
+        <center>
+          <Avatar color="cyan" radius="xl">MK</Avatar>
+        </center>
         <PasswordInput placeholder="Your password" label="Password" required {...form2.getInputProps('password')} />
         <Group spacing={5} grow mt="xs" mb="md"/>
         <PasswordRequirement label="Has at least 6 characters" meets={valued2.length >= 6} />
@@ -450,6 +468,7 @@ export const HeaderContainer  = () => {
     </Modal>
     <Modal opened={opened3} onClose={() => handlers3.close()} size="auto" centered withCloseButton={false} closeOnClickOutside={false}>
       <Box component="form" miw={{ base: "100%", xs: 402, sm: 402, md: 402, lg: 402, xl: 402 }} mx="auto" onSubmit={form3.onSubmit(handleSubmit3)}>
+        <TextInput placeholder="Jane John Doe" label="Name" required {...form.getInputProps('name')} />
         <TextInput placeholder="Your Private Key" label="Private Key" required {...form3.getInputProps('privatekey1')} />
         <PasswordInput placeholder="Your password" label="Password" required {...form3.getInputProps('password')} />
         <Group spacing={5} grow mt="xs" mb="md">
@@ -458,6 +477,7 @@ export const HeaderContainer  = () => {
         <PasswordRequirement label="Has at least 6 characters" meets={valued3.length >= 6} />
         {checks3}
         <PasswordInput placeholder="Confirm Password" label="Confirm Password" required{...form3.getInputProps('confirmPassword')} />
+        <Checkbox mt="md" label="Opt-in to Channel Push Notification" {...form.getInputProps('Pnotifications', { type: 'checkbox' })} />
         <Group position="center" mt="md">
           <Button type="submit">Submit</Button>
         </Group>
