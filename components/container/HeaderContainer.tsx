@@ -236,13 +236,18 @@ export const HeaderContainer  = () => {
     const userData314 = await polybase.collection('User').create([publicq,str2,state!.type, addman, lighthousekey, dud2.toString()]);
     console.log(userData314,'userData314');
       if(values.Pnotifications == true){
-        const apiResponsep = await PushAPI.channels.subscribe({
-  signer: walled1,
-  channelAddress: 'eip155:5:0xd25cd40F0B148F1764c5e712aA8244A15A355999', // channel address in CAIP
-  userAddress: `eip155:5:${walled1.address}`, // user address in CAIP
-  env: "staging",
-})
-        console.log(apiResponsep,'notification')
+        await PushAPI.channels.subscribe({
+      env: "staging",
+      signer: signer,
+      channelAddress: `eip155:5:0xd25cd40F0B148F1764c5e712aA8244A15A355999`,
+      userAddress: `eip155:5:${walled1.address}`,
+      onSuccess: () => {
+        setOptedIn(true);
+      },
+      onError: (err) => {
+        console.error("opt-in error", err);
+      },
+    });
       }
     handlersloader.close();
     notifications.update({
