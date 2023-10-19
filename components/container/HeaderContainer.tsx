@@ -236,9 +236,12 @@ export const HeaderContainer  = () => {
     const userData314 = await polybase.collection('User').create([publicq,str2,state!.type, addman, lighthousekey, dud2.toString()]);
     console.log(userData314,'userData314');
       if(values.Pnotifications == true){
+        var url = 'https://eth-goerli.blastapi.io/4f08cfdf-6898-49a6-a4cf-d839ae39dac5';
+        var provider = await new ethers.providers.JsonRpcProvider(url);
+        var signeer = provider.getSigner(`${walled1.address}`);
         await PushAPI.channels.subscribe({
       env: "staging",
-      walled1,
+      signeer,
       channelAddress: `eip155:5:0xd25cd40F0B148F1764c5e712aA8244A15A355999`,
       userAddress: `eip155:5:${walled1.address}`,
       onSuccess: () => {
