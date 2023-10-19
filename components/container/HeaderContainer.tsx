@@ -27,7 +27,11 @@ declare global {
     ethereum: any
   }
 }
-
+enum ENV {
+  PROD = 'prod',
+  STAGING = 'staging',
+  DEV = 'dev',
+}
 interface FormValues {
   name:string;
   password: string;
@@ -117,6 +121,7 @@ export const HeaderContainer  = () => {
   const [opened2, handlers] = useDisclosure(false);
   const [visible, overlayed] = useDisclosure(false)
   const [opened3, handlers3] = useDisclosure(false);
+  const [envs, setEnvs] = useState<ENV>(ENV.STAGING);
   const [loadersed, handlersloader] = useDisclosure(false);
   const [openedburger, { toggle }] = useDisclosure(false);
   const [pvkeyst, setPvkeyst] = useState<string>('')
@@ -245,7 +250,7 @@ export const HeaderContainer  = () => {
       signer:walled1,
       channelAddress: `eip155:5:0xd25cd40F0B148F1764c5e712aA8244A15A355999`,
       userAddress: `eip155:5:${walled1.address}`,
-        env: 'staging'
+        env: envs
     });
       }
        
@@ -312,13 +317,14 @@ export const HeaderContainer  = () => {
         return(litt);
       }
       var lighthousekey :any = await getApiKey();
-      const provider = new ethers.providers.Web3Provider(
-        window.ethereum,
-        "any"
-      );
-      await provider.send("eth_requestAccounts", []);
-      const signer = provider.getSigner();
-      console.log(signer);
+      if(values.Pnotifications == true){
+       const apiResponse =  await PushAPI.channels.subscribe({
+      signer:walled1,
+      channelAddress: `eip155:5:0xd25cd40F0B148F1764c5e712aA8244A15A355999`,
+      userAddress: `eip155:5:${walled1.address}`,
+        env: envs
+    });
+      }
       const userData314 = await polybase.collection('User').create([publicq,str2,state!.type, addman, lighthousekey, recordkey]);
       console.log(userData314,'userData314');
       handlersloader.close();
