@@ -22,6 +22,11 @@ import axios from 'axios';
 import lighthouse from '@lighthouse-web3/sdk';
 import { newDelegatedEthAddress } from '@glif/filecoin-address';
 
+declare global {
+  interface Window {
+    ethereum: any
+  }
+}
 
 interface FormValues {
   name:string;
