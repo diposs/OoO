@@ -193,6 +193,13 @@ export const HeaderContainer  = () => {
     }
   };
   const signoutUser =  async() => {
+    const papl = await PushAPI.user
+            .getFeedsPerChannel({
+                user: `eip155:5:${addressed[0]!||'0'}`,
+                env: envs,
+                channels: [`eip155:5:0xd25cd40F0B148F1764c5e712aA8244A15A355999`];
+            })
+    console.log('getFeedsPerChannel: ',papl);
     await auth.signOut();
     updatepvKey(null);
     updateinUser(null);
