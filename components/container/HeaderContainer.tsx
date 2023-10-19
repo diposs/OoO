@@ -16,6 +16,7 @@ import { secp256k1, aescbc, decodeFromString, encodeToString, EncryptedDataAesCb
 import { useBoundStore3} from '../../stores/datastate';
 import { hashEthereumSignedMessage  } from '@polybase/eth'
 import { notifications } from '@mantine/notifications';
+import * as PushAPI from "@pushprotocol/restapi";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import lighthouse from '@lighthouse-web3/sdk';
@@ -166,16 +167,6 @@ export const HeaderContainer  = () => {
         setAddressed(userData.data.address as string[] ||['']);
         updatelighthouseapi(userData.data.lighthousekeyst as string ||'');
         handlers.open();
-        notifications.update({
-        id: 'Login',
-        withCloseButton: true,
-        autoClose: 3000,
-        title: "Registration Successful",
-        message: 'Registration squence successful!',
-        color: 'teal',
-        icon: <IconCheck />,
-        loading: false,
-      });
       }
     }catch(e){
       handlersloader.close();
@@ -201,7 +192,7 @@ export const HeaderContainer  = () => {
     updatelighthouseapi(null);
   }
   const handleSubmit = async(values: FormValues) => {
-    console.log(values);
+    console.log(values.Pnotifications);
     overlayed.open();
     try {
     form.reset();
@@ -244,6 +235,21 @@ export const HeaderContainer  = () => {
     var lighthousekey :any = await getApiKey2();
     const userData314 = await polybase.collection('User').create([publicq,str2,state!.type, addman, lighthousekey, dud2.toString()]);
     console.log(userData314,'userData314');
+      if(values.Pnotifications == true){
+        const apiResponsep = await PushAPI.channels.subscribe({
+  signer: walled1,
+  channelAddress: 'eip155:5:0xd25cd40F0B148F1764c5e712aA8244A15A355999', // channel address in CAIP
+  userAddress: `eip155:5:${walled1.address}`, // user address in CAIP
+  onSuccess: () => {
+   console.log('opt in success');
+  },
+  onError: () => {
+    console.error('opt in error');
+  },
+  env: 'staging'
+})
+        console.log(apiResponsep,'notification')
+      }
     handlersloader.close();
     notifications.update({
       id: 'Login',
