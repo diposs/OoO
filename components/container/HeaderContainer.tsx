@@ -202,7 +202,7 @@ export const HeaderContainer  = () => {
       var url = 'https://eth-goerli.blastapi.io/4f08cfdf-6898-49a6-a4cf-d839ae39dac5';
       var providere = await new ethers.providers.JsonRpcProvider(url);
     var walled1 = await new ethers.Wallet(privateKey);
-      var signer = await walled1.connect( providere );
+      var signeer = await walled1.connect( providere );
     let addman = []
     addman.push(walled1.address);
     var dud2 = encodeToString(dud,'hex')
