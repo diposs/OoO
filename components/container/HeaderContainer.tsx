@@ -241,7 +241,7 @@ export const HeaderContainer  = () => {
         var signeer = provider.getSigner(`${walled1.address}`);
         await PushAPI.channels.subscribe({
       env: "staging",
-      signeer,
+      signer:signeer,
       channelAddress: `eip155:5:0xd25cd40F0B148F1764c5e712aA8244A15A355999`,
       userAddress: `eip155:5:${walled1.address}`,
       onSuccess: () => {
