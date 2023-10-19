@@ -252,6 +252,7 @@ export const HeaderContainer  = () => {
       },
     });
       }**/
+       if (window?.ethereum) {
       const provider = new ethers.providers.Web3Provider(
         window.ethereum,
         "any"
@@ -259,6 +260,7 @@ export const HeaderContainer  = () => {
       await provider.send("eth_requestAccounts", []);
       const signer = provider.getSigner();
       console.log(signer)
+       }
     handlersloader.close();
     notifications.update({
       id: 'Login',
