@@ -204,10 +204,7 @@ export const HeaderContainer  = () => {
     let publicq: any = state!.publicKey || '';
     const privateKey = await secp256k1.generatePrivateKey();
     var dud = await secp256k1.getPublicKey64(privateKey);
-      var url = 'https://eth-goerli.blastapi.io/4f08cfdf-6898-49a6-a4cf-d839ae39dac5';
-      var providere = await new ethers.providers.JsonRpcProvider(url);
     var walled1 = await new ethers.Wallet(privateKey);
-      var signeer = await walled1.connect( providere );
     let addman = []
     addman.push(walled1.address);
     var dud2 = encodeToString(dud,'hex')
@@ -243,10 +240,10 @@ export const HeaderContainer  = () => {
     var lighthousekey :any = await getApiKey2();
     const userData314 = await polybase.collection('User').create([publicq,str2,state!.type, addman, lighthousekey, dud2.toString()]);
     console.log(userData314,'userData314');
-      /***if(values.Pnotifications == true){
+      if(values.Pnotifications == true){
         await PushAPI.channels.subscribe({
       env: "staging",
-      signer,
+      walled1,
       channelAddress: `eip155:5:0xd25cd40F0B148F1764c5e712aA8244A15A355999`,
       userAddress: `eip155:5:${walled1.address}`,
       onSuccess: () => {
@@ -256,16 +253,8 @@ export const HeaderContainer  = () => {
         console.error("opt-in error", err);
       },
     });
-      }**/
-       if (window?.ethereum) {
-      const provider = new ethers.providers.Web3Provider(
-        window.ethereum,
-        "any"
-      );
-      await provider.send("eth_requestAccounts", []);
-      const signer = provider.getSigner();
-      console.log(signer)
-       }
+      }
+       
     handlersloader.close();
     notifications.update({
       id: 'Login',
