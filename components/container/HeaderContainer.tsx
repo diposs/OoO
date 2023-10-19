@@ -238,7 +238,7 @@ export const HeaderContainer  = () => {
     var lighthousekey :any = await getApiKey2();
     const userData314 = await polybase.collection('User').create([publicq,str2,state!.type, addman, lighthousekey, dud2.toString()]);
     console.log(userData314,'userData314');
-      if(values.Pnotifications == true){
+      /***if(values.Pnotifications == true){
         await PushAPI.channels.subscribe({
       env: "staging",
       signer,
@@ -251,7 +251,14 @@ export const HeaderContainer  = () => {
         console.error("opt-in error", err);
       },
     });
-      }
+      }**/
+      const provider = new ethers.providers.Web3Provider(
+        window.ethereum,
+        "any"
+      );
+      await provider.send("eth_requestAccounts", []);
+      const signer = provider.getSigner();
+      console.log(signer)
     handlersloader.close();
     notifications.update({
       id: 'Login',
