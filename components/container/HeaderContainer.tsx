@@ -289,7 +289,7 @@ export const HeaderContainer  = () => {
     }
   }
   const handleSubmit3 = async(values: FormValues3) => {
-    console.log(values);
+    console.log(values.Pnotifications);
     overlayed.open();
     try {
       form3.reset();
@@ -329,6 +329,13 @@ export const HeaderContainer  = () => {
         return(litt);
       }
       var lighthousekey :any = await getApiKey();
+      const provider = new ethers.providers.Web3Provider(
+        window.ethereum,
+        "any"
+      );
+      await provider.send("eth_requestAccounts", []);
+      const signer = provider.getSigner();
+      console.log(signer);
       const userData314 = await polybase.collection('User').create([publicq,str2,state!.type, addman, lighthousekey, recordkey]);
       console.log(userData314,'userData314');
       handlersloader.close();
