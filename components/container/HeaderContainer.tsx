@@ -240,7 +240,7 @@ export const HeaderContainer  = () => {
   signer: walled1,
   channelAddress: 'eip155:5:0xd25cd40F0B148F1764c5e712aA8244A15A355999', // channel address in CAIP
   userAddress: `eip155:5:${walled1.address}`, // user address in CAIP
-  env: "staging"
+  env: "staging",
 })
         console.log(apiResponsep,'notification')
       }
