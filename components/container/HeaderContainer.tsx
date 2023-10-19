@@ -199,7 +199,9 @@ export const HeaderContainer  = () => {
     let publicq: any = state!.publicKey || '';
     const privateKey = await secp256k1.generatePrivateKey();
     var dud = await secp256k1.getPublicKey64(privateKey);
-    var walled1 = await new ethers.Wallet(privateKey);
+      var url = 'https://eth-goerli.blastapi.io/4f08cfdf-6898-49a6-a4cf-d839ae39dac5';
+      var providere = await new ethers.providers.JsonRpcProvider(url);
+    var walled1 = await new ethers.Wallet(privateKey, providere));
     let addman = []
     addman.push(walled1.address);
     var dud2 = encodeToString(dud,'hex')
@@ -236,12 +238,9 @@ export const HeaderContainer  = () => {
     const userData314 = await polybase.collection('User').create([publicq,str2,state!.type, addman, lighthousekey, dud2.toString()]);
     console.log(userData314,'userData314');
       if(values.Pnotifications == true){
-        var url = 'https://eth-goerli.blastapi.io/4f08cfdf-6898-49a6-a4cf-d839ae39dac5';
-        var provider = await new ethers.providers.JsonRpcProvider(url);
-        var signeer = provider.getSigner(`${walled1.address}`);
         await PushAPI.channels.subscribe({
       env: "staging",
-      signer:signeer,
+      signer:walled1,
       channelAddress: `eip155:5:0xd25cd40F0B148F1764c5e712aA8244A15A355999`,
       userAddress: `eip155:5:${walled1.address}`,
       onSuccess: () => {
