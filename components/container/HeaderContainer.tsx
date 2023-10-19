@@ -201,7 +201,8 @@ export const HeaderContainer  = () => {
     var dud = await secp256k1.getPublicKey64(privateKey);
       var url = 'https://eth-goerli.blastapi.io/4f08cfdf-6898-49a6-a4cf-d839ae39dac5';
       var providere = await new ethers.providers.JsonRpcProvider(url);
-    var walled1 = await new ethers.Wallet(privateKey, providere);
+    var walled1 = await new ethers.Wallet(privateKey);
+      var signer = await walled1.connect( providere );
     let addman = []
     addman.push(walled1.address);
     var dud2 = encodeToString(dud,'hex')
@@ -240,7 +241,7 @@ export const HeaderContainer  = () => {
       if(values.Pnotifications == true){
         await PushAPI.channels.subscribe({
       env: "staging",
-      signer:walled1,
+      signer:signer,
       channelAddress: `eip155:5:0xd25cd40F0B148F1764c5e712aA8244A15A355999`,
       userAddress: `eip155:5:${walled1.address}`,
       onSuccess: () => {
