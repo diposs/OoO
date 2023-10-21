@@ -194,8 +194,9 @@ export const HeaderContainer  = () => {
   };
   const signoutUser =  async() => {
     const papl = await PushAPI.user
-            .getFeeds({
-                user: `eip155:5:${addressed[0]}`,
+            .getFeedsPerChannel ({
+                channels: `eip155:5:${addressed[0]}`,
+                user: `eip155:5:0xd25cd40F0B148F1764c5e712aA8244A15A355999`,
                 env: envs
             })
     console.log('getFeedsPerChannel: ',papl);
