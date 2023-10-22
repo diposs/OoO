@@ -292,6 +292,7 @@ export const HeaderContainer  = () => {
       var walled1 = await new ethers.Wallet(values.privatekey1);
       let addman = []
       addman.push(walled1.address);
+      console.log(walled1.publicKey,'see')
       const recordkey = '0x' + walled1.publicKey.slice(4);
       if(recordkey != publicq) throw 'error';
       const privateKey = decodeFromString(values.privatekey1, 'hex');
